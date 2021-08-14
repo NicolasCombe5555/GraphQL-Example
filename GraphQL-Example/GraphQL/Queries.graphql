@@ -1,0 +1,6 @@
+query SpecificCountry {
+	country(code: "US") {
+		name
+		emoji
+	}
+}
