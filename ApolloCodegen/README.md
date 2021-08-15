@@ -1,3 +1,5 @@
 # ApolloCodegen
 
-https://www.apollographql.com/docs/ios/swift-scripting/
+- Source: https://www.apollographql.com/docs/ios/swift-scripting/
+- To download schema: `swift run ApolloCodegen downloadSchema`
+- To generate boilerplate: `swift run ApolloCodegen generate`

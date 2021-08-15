@@ -26,13 +26,13 @@ struct SwiftScript: ParsableCommand {
 
             // Set up the URL you want to use to download the project
             // TODO: Replace the placeholder with the GraphQL endpoint you're using to download the schema.
-            let endpoint = URL(string: "http://localhost:8080/graphql")!
+            let endpoint = URL(string: "https://countries.trevorblades.com/")!
 
 
             // Calculate where you want to create the folder where the schema will be downloaded by the ApolloCodegenLib framework.
             // TODO: Replace the placeholder with the name of the actual folder where you want the downloaded schema saved. The default is set up to put it in your project's root.
             let folderForDownloadedSchema = fileStructure.sourceRootURL
-                .apollo.childFolderURL(folderName: "MyProject")
+                .apollo.childFolderURL(folderName: "GraphQL-Example/GraphQL")
 
             // Make sure the folder is created before trying to download something to it.
             try FileManager.default.apollo.createFolderIfNeeded(at: folderForDownloadedSchema)
@@ -60,7 +60,7 @@ struct SwiftScript: ParsableCommand {
             // Get the root of the target for which you want to generate code.
             // TODO: Replace the placeholder here with the name of of the folder containing your project's code files.
             let targetRootURL = fileStructure.sourceRootURL
-                .apollo.childFolderURL(folderName: "MyProject")
+                .apollo.childFolderURL(folderName: "GraphQL-Example/GraphQL")
 
             // Make sure the folder exists before trying to generate code.
             try FileManager.default.apollo.createFolderIfNeeded(at: targetRootURL)
