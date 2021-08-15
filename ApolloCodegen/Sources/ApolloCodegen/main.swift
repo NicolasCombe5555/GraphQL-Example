@@ -7,12 +7,12 @@ import ArgumentParser
 struct SwiftScript: ParsableCommand {
 
     static var configuration = CommandConfiguration(
-            abstract: """
+        abstract: """
         A swift-based utility for performing Apollo-related tasks.
 
         NOTE: If running from a compiled binary, prefix subcommands with `swift-script`. Otherwise use `swift run ApolloCodegen [subcommand]`.
         """,
-            subcommands: [DownloadSchema.self, GenerateCode.self])
+        subcommands: [DownloadSchema.self, GenerateCode.self])
 
     /// The sub-command to download a schema from a provided endpoint.
     struct DownloadSchema: ParsableCommand {
