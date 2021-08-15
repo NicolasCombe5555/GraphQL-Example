@@ -1,0 +1,29 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=14.5,name=iPhone 12 Pro Max']
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+          xcodebuild clean build -project GraphQL-Example.xcodeproj -scheme GraphQL-Example -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      env:
+         destination: ${{ matrix.destination }}
+ 
+    - name: Run tests
+      run: |
+          xcodebuild clean test -project GraphQL-Example.xcodeproj -scheme GraphQL-Example -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      env:
+         destination: ${{ matrix.destination }}
