@@ -19,6 +19,8 @@ public final class SpecificCountryQuery: GraphQLQuery {
 
   public let operationName: String = "SpecificCountry"
 
+  public let operationIdentifier: String? = "e90b56bd01cf9ff76c0c7b1e00cf7e952d7fe29692dfe4117e5d2bba1b8555de"
+
   public init() {
   }
 
