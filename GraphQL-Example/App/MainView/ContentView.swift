@@ -11,28 +11,15 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
-    @State private var countryEmoji = ""
 
     var body: some View {
-        Text(countryEmoji)
-            .font(.title)
-            .onAppear {
-                Network
-                    .apollo
-                    .fetchPublisher(query: SpecificCountryQuery())
-                    .receive(on: DispatchQueue.main)
-                    .sink { completion in
-                        switch completion {
-                        case .finished:
-                            print("hi")
-                        case .failure:
-                            print("no")
-                        }
-                    } receiveValue: { value in
-                        countryEmoji = value.data?.country?.emoji ?? ""
-                    }
-                    .store(in: &viewModel.cancellables)
+        NavigationView {
+            List(viewModel.countries, id: \.code) {
+                CountryCell(country: $0)
             }
+            .navigationBarTitle("Countries GraphQL")
+        }
+        .onAppear { viewModel.fetchCountries() }
     }
 }
 

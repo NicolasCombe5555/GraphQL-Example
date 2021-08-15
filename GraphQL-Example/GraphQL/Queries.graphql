@@ -1,6 +1,17 @@
-query SpecificCountry {
-	country(code: "US") {
-		name
-		emoji
+query AllCountries {
+	countries {
+		...SmallCountry
 	}
+}
+
+query SpecificCountry($code: String) {
+	country(code: $code) {
+		...SmallCountry
+	}
+}
+
+fragment SmallCountry on Country {
+	code
+	name
+	emoji
 }
