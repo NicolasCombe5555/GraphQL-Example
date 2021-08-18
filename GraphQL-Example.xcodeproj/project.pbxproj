@@ -142,8 +142,8 @@
 		AE9EB9E826C87D2700653B7C /* App */ = {
 			isa = PBXGroup;
 			children = (
-				AEF841D726C88A0C00AB58B8 /* MainView */,
 				AE9EB9BB26C8775100653B7C /* App.swift */,
+				AEF841D726C88A0C00AB58B8 /* MainView */,
 			);
 			path = App;
 			sourceTree = "<group>";
